@@ -22,7 +22,6 @@
       <tr class = "invoice-table__tr">
         <th> Menu Item Id </th>
         <th> Menu Item    </th>
-        <th> Description    </th>
         <th> Quantity     </th>
         <th> Price        </th>
         <th> Price x quantity </th>
@@ -33,7 +32,6 @@
         <tr class = "invoice-table__tr">
           <td>  <%= order_item.menuitem_id %> </td>
           <td> <%= order_item.menuitem_name %> </td>
-          <td> <%= Menuitem.find(order_item.menuitem_id).description %> </td>
           <td> <%= order_item.menu_item_quantity %> </td>
           <td> <i class="fa fa-inr" aria-hidden="true"></i> <%= order_item.menuitem_price %> </td>
           <td> <i class="fa fa-inr" aria-hidden="true"></i> <%= order_item.menuitem_price*order_item.menu_item_quantity %> </td>
