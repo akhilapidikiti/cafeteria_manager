@@ -36,6 +36,13 @@ class UsersController < ApplicationController
     render "clerk_edit", locals: { user: user }
   end
 
+  def delete
+    id = params[:id]
+    user = User.all.find(id)
+    user.destroy
+    redirect_to users_list_path
+  end
+
   def updateclerk
     id = params[:id]
     user = User.find(id)
@@ -53,13 +60,6 @@ class UsersController < ApplicationController
     id = params[:id]
     user = User.find(id)
     render "user_view", locals: { user: user }
-  end
-
-  def delete
-    id = params[:id]
-    user = User.all.find(id)
-    user.destroy
-    redirect_to users_list_path
   end
 
   def destroy

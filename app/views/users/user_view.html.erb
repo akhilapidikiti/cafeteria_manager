@@ -4,7 +4,7 @@
 <p class="email-input">Email: <%= user.email %></p><br>
 <p class="phone-input">Phone Number: <%= user.phone %></p><br>
 <p class="address-input">Address: <%= user.address %></p><br>
-<% if user.role == "customer" %>
+<% if user.role == "customer" || user.role == "clerk" %>
   <% count = 0 %>
    <% Order.all.each do |order| %>
       <% if order.user_id == user.id && order.price != nil %>
