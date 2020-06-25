@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
     order.status = "delivered"
     order.delivered_at = DateTime.now
     order.save
+    flash[:notice] = "Delivered successfully"
     redirect_to "/orders#index"
   end
 
@@ -93,6 +94,7 @@ class OrdersController < ApplicationController
 
       session[:current_order_id] = nil
       redirect_to "/orders#index"
+      flash[:notice] = "Ordered successfully"
     else
       order.status = "delivered"
       order.delivered_at = DateTime.now
