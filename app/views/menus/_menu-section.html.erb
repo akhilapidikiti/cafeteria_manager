@@ -9,6 +9,9 @@
                  <% end %>
            <%= menu.name %>:
            <h3 class="Link-Item"><%= link_to "click here", "/menus/#{menu.id}" %></h3>
+           <%= form_with(url: "/menus/#{menu.id}/edit", method: "get",local: "true") do %>
+                <%= image_submit_tag("edit.svg", class: "MenuItem-edit" )%>
+            <% end %>
            <%= form_with(url: "/menus/#{menu.id}", method: "delete") do %>
               <%= image_submit_tag("trash.svg",class: "Menu-delete")%>
           <% end %>

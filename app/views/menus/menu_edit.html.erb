@@ -1,0 +1,7 @@
+<%= form_with(url: "/menus/#{menu.id}/updateMenu", method: "put", class: "update-menu") do %>
+  <div class="update-user">
+    <%= text_field_tag(:name, nil, class: "name-input", value: menu.name, placeholder: "Enter new Menuname", autofocus: "autofocus") %>
+  <br><%= submit_tag("Update Info!", class: "user-formsubmit") %>
+  </div>
+
+<% end %>

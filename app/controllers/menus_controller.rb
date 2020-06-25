@@ -49,6 +49,21 @@ class MenusController < ApplicationController
     redirect_to "/menus"
   end
 
+  def edit
+    id = params[:id]
+    menu = Menu.find(id)
+    render "menu_edit", locals: { menu: menu }
+  end
+
+  def updateMenu
+    id = params[:id]
+    menu = Menu.find(id)
+    menu.name = params[:name]
+    menu.save
+    flash[:notice] = "updated successfully"
+    redirect_to "/menus"
+  end
+
   def destroy
     id = params[:id]
     menu = Menu.find(id)
