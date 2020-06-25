@@ -54,7 +54,6 @@ class OrdersController < ApplicationController
     )
     if new_order.save!
       redirect_to "menus/#{session[:current_menu_id]}"
-      #redirect_to cart_path
     end
   end
 

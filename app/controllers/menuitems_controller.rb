@@ -26,7 +26,7 @@ class MenuitemsController < ApplicationController
                                 menu_id: menu_id,
                                 menuitem_id: params[:menuitem_id])
     if new_menuitem.save
-      flash[:success] = "#{params[:name]} added to  menu!"
+      flash[:notice] = "#{params[:name]} added to  menu!"
       redirect_to "/menus/#{menu_id}"
     else
       flash[:error] = new_menuitem.errors.full_messages.join(", ")

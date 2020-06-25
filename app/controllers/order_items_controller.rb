@@ -39,13 +39,13 @@ class OrderItemsController < ApplicationController
     menuitem = Menuitem.find(id)
     menuitem_name = menuitem.name
     menuitem_price = menuitem.price
-    new_orderitem = OrderItem.create!(order_id: session[:current_order_id],
-                                      menuitem_id: menuitem.id,
-                                      menuitem_name: menuitem.name,
-                                      menuitem_price: menuitem.price,
-                                      menu_item_quantity: params[:menu_item_quantity])
+    new_orderitem = OrderItem.new(order_id: session[:current_order_id],
+                                  menuitem_id: menuitem.id,
+                                  menuitem_name: menuitem.name,
+                                  menuitem_price: menuitem.price,
+                                  menu_item_quantity: params[:menu_item_quantity])
     if new_orderitem.save
-      flash[:success] = "#{params[:menuitem_name]} added to  cart!"
+      flash[:notice] = "#{menuitem_name} added to  cart!"
     end
 
     redirect_to "/order_items"
